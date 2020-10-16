@@ -1,6 +1,9 @@
 body {
   margin: 0;
   padding: 0;
+  background: #EB5757;
+  background: -webkit-linear-gradient(to right, #000000, #EB5757);
+  background: linear-gradient(to right, #000000, #EB5757);
 }
 body .header-fixed-scroll {
   position: fixed;
@@ -69,9 +72,6 @@ body .header-fixed-scroll .header-container .header-contacts .contacts-icon .fa:
 }
 body .main-container {
   padding: 80px 150px;
-  background: #EB5757;
-  background: -webkit-linear-gradient(to right, #000000, #EB5757);
-  background: linear-gradient(to right, #000000, #EB5757);
 }
 body .main-container .team-info,
 body .main-container .recruit-info,

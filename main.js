@@ -116,24 +116,24 @@ let achievements = [
         }
     }
 ]
-console.dir(achievements);
 
-getE("player1").onclick = function () {
-    createPlayerCard(0);
+function loadButtons() {
+    getE("player1").onclick = function () {
+        createPlayerCard(0);
+    }
+    getE("player2").onclick = function () {
+        createPlayerCard(1);
+    }
+    getE("player3").onclick = function () {
+        createPlayerCard(2);
+    }
+    getE("player4").onclick = function () {
+        createPlayerCard(3);
+    }
+    getE("player5").onclick = function () {
+        createPlayerCard(4);
+    }
 }
-getE("player2").onclick = function () {
-    createPlayerCard(1);
-}
-getE("player3").onclick = function () {
-    createPlayerCard(2);
-}
-getE("player4").onclick = function () {
-    createPlayerCard(3);
-}
-getE("player5").onclick = function () {
-    createPlayerCard(4);
-}
-
 
 function createPlayerCard(id) {
     let pad = getE("roster");
