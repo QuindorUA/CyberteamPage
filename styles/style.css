@@ -1,9 +1,13 @@
 body {
   margin: 0;
   padding: 0;
-  background: #EB5757;
-  background: -webkit-linear-gradient(to right, #000000, #EB5757);
-  background: linear-gradient(to right, #000000, #EB5757);
+  background: #0f0c29;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #24243e, #302b63, #0f0c29);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #24243e, #302b63, #0f0c29);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  overflow: hidden;
 }
 body .header-fixed-scroll {
   position: fixed;
@@ -71,164 +75,150 @@ body .header-fixed-scroll .header-container .header-contacts .contacts-icon .fa:
   border-bottom: 1px solid white;
 }
 body .main-container {
-  padding: 80px 150px;
+  padding: 100px 0 0 0;
 }
-body .main-container .team-info,
-body .main-container .recruit-info,
-body .main-container .challenge-info {
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+body .main-container .fade {
+  animation: fade 1.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+body .main-container .slide-container {
   display: flex;
-  justify-content: space-between;
-  margin: 160px 0;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 125px 150px 0 150px;
 }
-body .main-container .team-info .photo-container img,
-body .main-container .recruit-info .photo-container img,
-body .main-container .challenge-info .photo-container img {
+body .main-container .slide-container .slide {
+  display: none;
+  width: 100%;
+  height: 500px;
+}
+body .main-container .slide-container .slide .photo-container img {
   width: 400px;
 }
-body .main-container .team-info .text-container,
-body .main-container .recruit-info .text-container,
-body .main-container .challenge-info .text-container {
-  padding: 70px 15px;
+body .main-container .slide-container .slide .text-container {
+  padding: 60px 15px;
   text-align: center;
-  width: 70%;
 }
-body .main-container .team-info .text-container p,
-body .main-container .recruit-info .text-container p,
-body .main-container .challenge-info .text-container p {
+body .main-container .slide-container .slide .text-container p {
   margin: 0;
+  padding: 70px 0;
   font-weight: bold;
   font-family: "Marck Script", cursive;
   color: white;
   font-size: 65px;
   text-shadow: 5px 1px 2px #000000;
 }
-body .main-container #roster {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  margin-top: 30px;
-  padding: 84px 0;
-}
-body .main-container #roster .text {
-  margin: 0;
-  font-weight: bold;
-  font-family: 'Roboto Mono', monospace;
-  color: white;
-  font-size: 30px;
-  text-shadow: 5px 1px 2px #000000;
-}
-body .main-container #roster .icon-wrapper {
+body .main-container .dots-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
-body .main-container #roster .icon-wrapper .player-icon,
-body .main-container #roster .icon-wrapper .player-icon-kicked {
-  margin: 30px 20px;
+body .main-container .dots-container .dot {
+  cursor: pointer;
+  margin: 125px 5px 5px 5px;
+  width: 20px;
+  height: 20px;
+  color: #333;
+  border-radius: 50%;
+  background-color: #dfd6ce;
 }
-body .main-container #roster .icon-wrapper .player-icon img,
-body .main-container #roster .icon-wrapper .player-icon-kicked img {
-  width: 160px;
-  border: 1px solid black;
-  border-radius: 15px;
+body .main-container .dots-container .active {
+  border: 2px solid blue;
 }
-body .main-container #roster .icon-wrapper .player-icon .nickname,
-body .main-container #roster .icon-wrapper .player-icon-kicked .nickname {
-  opacity: 75%;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 15px;
+body .main-container #current-roster {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 80px 50px;
 }
-body .main-container #roster .icon-wrapper .player-icon .nickname p,
-body .main-container #roster .icon-wrapper .player-icon-kicked .nickname p {
+body .main-container #current-roster .player-model {
+  cursor: pointer;
+  position: absolute;
+  animation: fade 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+body .main-container #current-roster .player-model:hover .player-nickname {
+  opacity: 1;
+  transition: 2s;
+}
+body .main-container #current-roster .player-model img {
+  width: 340px;
+  transition: 0.3s;
+}
+body .main-container #current-roster .player-model img:hover {
+  width: 380px;
+  transition: 0.3s;
+}
+body .main-container #current-roster .player-model .player-nickname {
+  position: absolute;
+  top: 20px;
   margin: 0;
+  color: white;
   font-size: 30px;
   font-family: 'Roboto Mono', monospace;
   font-weight: bold;
+  opacity: 0;
 }
-body .main-container #roster .icon-wrapper .player-icon:hover {
-  cursor: pointer;
+body .main-container #current-roster #first-player {
+  left: 0;
 }
-body .main-container #roster #playerInfoHolder {
+body .main-container #current-roster #first-player .player-nickname {
+  left: 96px;
+}
+body .main-container #current-roster #second-player {
+  left: 20%;
+}
+body .main-container #current-roster #second-player .player-nickname {
+  left: 130px;
+}
+body .main-container #current-roster #third-player {
+  left: 40%;
+}
+body .main-container #current-roster #third-player .player-nickname {
+  left: 115px;
+}
+body .main-container #current-roster #forth-player {
+  left: 60%;
+}
+body .main-container #current-roster #forth-player .player-nickname {
+  left: 130px;
+}
+body .main-container #current-roster #forth-player img {
+  transform: scaleX(-1);
+}
+body .main-container #current-roster #fifth-player {
+  left: 80%;
+}
+body .main-container #current-roster #fifth-player .player-nickname {
+  left: 210px;
+}
+body .main-container #current-roster #fifth-player img {
+  transform: scaleX(-1);
+}
+body .main-container #player-info {
   display: none;
-  margin: 30px 0px 30px 0px;
-  width: 960px;
-  padding: 10px;
-  border: 1px solid black;
-  background-color: white;
-  border-radius: 15px;
+  justify-content: center;
+  margin: 80px 50px;
+  animation: fade 1.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
-body .main-container #roster #playerInfoHolder .image-wrapper {
-  height: 280px;
-}
-body .main-container #roster #playerInfoHolder .image-wrapper:hover {
+body .main-container #player-info .model-block img {
+  width: 340px;
   cursor: pointer;
 }
-body .main-container #roster #playerInfoHolder .image-wrapper img {
-  width: 280px;
-  border-radius: 15px;
+body .main-container #player-info .info-block {
+  margin-left: 50px;
+  padding: 150px 0;
 }
-body .main-container #roster #playerInfoHolder .player-info {
-  border-bottom: 1px solid black;
-  border-top: 1px solid black;
-  width: 100%;
-  margin-left: 10px;
-}
-body .main-container #roster #playerInfoHolder .player-info .player-name {
-  margin: 0;
-  font-size: 30px;
-  font-family: 'Lora', serif;
-  font-weight: bold;
-}
-body .main-container #roster #playerInfoHolder .player-info .player-links {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-body .main-container #roster #playerInfoHolder .player-info .player-links .steam-button {
-  position: relative;
-  width: 33%;
-  height: 50px;
-  background-image: url("../images/steam-logo.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 15px;
-}
-body .main-container #roster #playerInfoHolder .player-info .player-links .steam-button a .hyperspan {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  z-index: 1;
-}
-body .main-container #roster #playerInfoHolder .player-info .player-links .faceit-button {
-  position: relative;
-  width: 33%;
-  height: 50px;
-  background-image: url("../images/faceit-logo.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 15px;
-}
-body .main-container #roster #playerInfoHolder .player-info .player-links .faceit-button a .hyperspan {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  z-index: 1;
-}
-body .main-container #roster #playerInfoHolder .player-info .player-links .esea-button {
-  position: relative;
-  width: 33%;
-  height: 50px;
-  background-image: url("../images/esea-logo.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 15px;
-}
-body .main-container #roster #playerInfoHolder .player-info .player-bio {
+body .main-container #player-info .info-block .player-bio {
+  color: white;
   margin: 5px;
   font-size: 30px;
   font-family: 'Lora', serif;
@@ -238,7 +228,7 @@ body .main-container .achievements {
   align-items: center;
   flex-direction: column;
   margin-top: 30px;
-  padding-bottom: 203px;
+  padding: 0 250px 0 250px;
 }
 body .main-container .achievements .tournament-text {
   margin: 0;
@@ -259,6 +249,7 @@ body .main-container .achievements #tournament-wrapper .tournament-card {
   background-color: black;
   padding: 5px;
   margin: 10px;
+  animation: fade 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 body .main-container .achievements #tournament-wrapper .tournament-card .main-section {
   position: relative;
@@ -288,6 +279,7 @@ body .main-container .achievements #tournament-wrapper .tournament-card .tournam
   padding: 15px 10px;
   width: 400px;
   background-color: white;
+  animation: fade 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 body .main-container .achievements #tournament-wrapper .tournament-card .tournament-info .tournament-info-text {
   margin: 5px;
@@ -329,6 +321,7 @@ body .main-container .contacts-wrapper .contacts-main-block {
   display: flex;
   justify-content: space-around;
   margin-top: 50px;
+  padding: 0 150px;
 }
 body .main-container .contacts-wrapper .contacts-main-block .contacts-telegram {
   display: flex;

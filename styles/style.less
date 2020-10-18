@@ -1,9 +1,10 @@
 body{
   margin: 0;
   padding: 0;
-  background: #EB5757;
-  background: -webkit-linear-gradient(to right, #000000, #EB5757);
-  background: linear-gradient(to right, #000000, #EB5757);
+  background: #0f0c29;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  overflow: hidden;
   .header-fixed-scroll{
     position: fixed;
     width: 100vw;
@@ -74,158 +75,154 @@ body{
     }
   }
   .main-container{
-    padding: 80px 150px;
-    .team-info, .recruit-info, .challenge-info{
-      display: flex;
-      justify-content: space-between;
-      margin: 160px 0;
-      .photo-container{
-        img{
-          width: 400px;
-        }
+    padding: 100px 0 0 0;
+    @keyframes fade{
+      0%{
+        opacity: 0;
       }
-      .text-container{
-        padding: 70px 15px;
-        text-align: center;
-        width: 70%;
-        p{
-          margin: 0;
-          font-weight: bold;
-          font-family: "Marck Script", cursive;
-          color: white;
-          font-size: 65px;
-          text-shadow: 5px 1px 2px rgba(0, 0, 0, 1);
+      100%{
+        opacity: 1;
+      }
+    }
+    .fade{
+      animation: fade 1.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+    }
+    .slide-container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      padding: 125px 150px 0 150px;
+      .slide{
+        display: none;
+        width: 100%;
+        height: 500px;
+        .photo-container{
+          img{
+            width: 400px;
+          }
+        }
+        .text-container{
+          padding: 60px 15px;
+          text-align: center;
+          p{
+            margin: 0;
+            padding: 70px 0;
+            font-weight: bold;
+            font-family: "Marck Script", cursive;
+            color: white;
+            font-size: 65px;
+            text-shadow: 5px 1px 2px rgba(0, 0, 0, 1);
+          }
         }
       }
     }
-    #roster{
+    .dots-container{
       display: flex;
+      justify-content: center;
       align-items: center;
-      flex-direction: column;
-      text-align: center;
-      margin-top: 30px;
-      padding: 84px 0;
-      .text{
-        margin: 0;
-        font-weight: bold;
-        font-family: 'Roboto Mono', monospace;
-        color: white;
-        font-size: 30px;
-        text-shadow: 5px 1px 2px rgba(0, 0, 0, 1);
+      padding: 10px;
+      .dot{
+        cursor: pointer;
+        margin: 125px 5px 5px 5px;
+        width: 20px;
+        height: 20px;
+        color: #333;
+        border-radius: 50%;
+        background-color: #dfd6ce;
       }
-      .icon-wrapper{
-        display: flex;
-        justify-content: center;
-        .player-icon, .player-icon-kicked{
-          margin: 30px 20px;
-          img{
-            width: 160px;
-            border: 1px solid black;
-            border-radius: 15px;
-          }
-          .nickname{
-            opacity: 75%;
-            background-color: white;
-            border: 1px solid black;
-            border-radius: 15px;
-            p{
-              margin: 0;
-              font-size: 30px;
-              font-family: 'Roboto Mono', monospace;
-              font-weight: bold;
-            }
+      .active{
+        border: 2px solid blue;
+      }
+    }
+    #current-roster{
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      margin: 80px 50px;
+      .player-model{
+        cursor: pointer;
+        position: absolute;
+        animation: fade 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+        &:hover .player-nickname{
+          opacity: 1;
+          transition: 2s;
+        }
+        img{
+          width: 340px;
+          transition: 0.3s;
+          &:hover{
+            width: 380px;
+            transition: 0.3s;
           }
         }
-        .player-icon:hover{
+        .player-nickname{
+          position: absolute;
+          top: 20px;
+          margin: 0;
+          color: white;
+          font-size: 30px;
+          font-family: 'Roboto Mono', monospace;
+          font-weight: bold;
+          opacity: 0;
+        }
+      }
+      #first-player{
+        left: 0;
+        .player-nickname{
+          left: 96px;
+        }
+      }
+      #second-player{
+        left: 20%;
+        .player-nickname{
+          left: 130px;
+        }
+      }
+      #third-player {
+        left: 40%;
+        .player-nickname{
+          left: 115px;
+        }
+      }
+      #forth-player{
+        left: 60%;
+        .player-nickname{
+          left: 130px;
+        }
+        img{
+          transform: scaleX(-1);
+        }
+      }
+      #fifth-player{
+        left: 80%;
+        .player-nickname{
+          left: 210px;
+        }
+        img{
+          transform: scaleX(-1);
+        }
+      }
+    }
+    #player-info{
+      display: none;
+      justify-content: center;
+      margin: 80px 50px;
+      animation: fade 1.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+      .model-block{
+        img{
+          width: 340px;
           cursor: pointer;
         }
       }
-      #playerInfoHolder{
-        display: none;
-        margin: 30px 0px 30px 0px;
-        width: 960px;
-        padding: 10px;
-        border: 1px solid black;
-        background-color: white;
-        border-radius: 15px;
-        .image-wrapper{
-          height: 280px;
-          &:hover{
-            cursor: pointer;
-          }
-          img{
-            width: 280px;
-            border-radius: 15px;
-          }
-        }
-        .player-info{
-          border-bottom: 1px solid black;
-          border-top: 1px solid black;
-          width: 100%;
-          margin-left: 10px;
-          .player-name{
-            margin: 0;
-            font-size: 30px;
-            font-family: 'Lora', serif;
-            font-weight: bold;
-          }
-          .player-links{
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-            .steam-button{
-              position: relative;
-              width: 33%;
-              height: 50px;
-              background-image: url("../images/steam-logo.jpg");
-              background-size: cover;
-              background-position: center;
-              border-radius: 15px;
-              a{
-                .hyperspan{
-                  position:absolute;
-                  width:100%;
-                  height:100%;
-                  left:0;
-                  top:0;
-                  z-index:1;
-                }
-              }
-            }
-            .faceit-button{
-              position: relative;
-              width: 33%;
-              height: 50px;
-              background-image: url("../images/faceit-logo.jpg");
-              background-size: cover;
-              background-position: center;
-              border-radius: 15px;
-              a{
-                .hyperspan{
-                  position:absolute;
-                  width:100%;
-                  height:100%;
-                  left:0;
-                  top:0;
-                  z-index:1;
-                }
-              }
-            }
-            .esea-button{
-              position: relative;
-              width: 33%;
-              height: 50px;
-              background-image: url("../images/esea-logo.jpg");
-              background-size: cover;
-              background-position: center;
-              border-radius: 15px;
-            }
-          }
-          .player-bio{
-            margin: 5px;
-            font-size: 30px;
-            font-family: 'Lora', serif;
-          }
+      .info-block{
+        margin-left: 50px;
+        padding: 150px 0;
+        .player-bio{
+          color: white;
+          margin: 5px;
+          font-size: 30px;
+          font-family: 'Lora', serif;
         }
       }
     }
@@ -234,7 +231,7 @@ body{
       align-items: center;
       flex-direction: column;
       margin-top: 30px;
-      padding-bottom: 203px;
+      padding: 0 250px 0 250px;
       .tournament-text{
         margin: 0;
         font-weight: bold;
@@ -253,6 +250,7 @@ body{
           background-color: black;
           padding: 5px;
           margin: 10px;
+          animation: fade 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
           .main-section{
             position: relative;
             a{
@@ -276,11 +274,13 @@ body{
               cursor: pointer;
             }
           }
+          
           .tournament-info{
             margin-left: 5px;
             padding: 15px 10px;
             width: 400px;
             background-color: white;
+            animation: fade 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
             .tournament-info-text{
               margin: 5px;
               font-family: 'Lora', serif;
@@ -324,6 +324,7 @@ body{
         display: flex;
         justify-content: space-around;
         margin-top: 50px;
+        padding: 0 150px;
         .contacts-telegram{
           display: flex;
           flex-direction: column;
