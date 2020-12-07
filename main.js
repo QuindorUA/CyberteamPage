@@ -1,16 +1,5 @@
 let playersBIO = [
     {
-        fullName: "Роман Гульоватий",
-        nickname: "Quindor",
-        image: "images/quindor.jpg",
-        age: 21,
-        country: "Україна",
-        town: "Тернопіль",
-        gameRole: "Captain",
-        steam: "https://steamcommunity.com/profiles/76561198091757733",
-        faceit: "https://www.faceit.com/en/players/Quindor_UA"
-    },
-    {
         fullName: "Денис Папуша",
         nickname: "d3nn1",
         image: "images/d3nn1.jpg",
@@ -33,6 +22,17 @@ let playersBIO = [
         faceit: "https://www.faceit.com/en/players/-d3nn1"
     },
     {
+        fullName: "Роман Гульоватий",
+        nickname: "Quindor",
+        image: "images/quindor.jpg",
+        age: 21,
+        country: "Україна",
+        town: "Тернопіль",
+        gameRole: "Captain",
+        steam: "https://steamcommunity.com/profiles/76561198091757733",
+        faceit: "https://www.faceit.com/en/players/Quindor_UA"
+    },
+    {
         fullName: "Денис Коваленко",
         nickname: "DenCool",
         image: "images/dencool.jpg",
@@ -49,7 +49,7 @@ let playersBIO = [
         image: "images/bankai.jpg",
         age: 17,
         country: "Україна",
-        town: "Львів",
+        town: "Стрий",
         gameRole: "Rifler",
         steam: "https://steamcommunity.com/profiles/76561198412603211",
         faceit: "https://www.faceit.com/en/players/OlegParuh"

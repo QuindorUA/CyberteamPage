@@ -132,7 +132,7 @@ body{
         background-color: #dfd6ce;
       }
       .active{
-        border: 2px solid blue;
+        border: 2px solid #4551ff;
       }
     }
     #current-roster{
@@ -209,20 +209,37 @@ body{
       justify-content: center;
       margin: 80px 50px;
       animation: fade 1.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+      .arrow{
+        color: white;
+        font-family: 'Lora', serif;
+        font-size: 45px;
+        font-weight: bold;
+        margin: auto 0;
+        &:hover{
+          color: #4551ff;
+          cursor: pointer;
+        }
+      }
       .model-block{
         img{
           width: 340px;
           cursor: pointer;
         }
       }
-      .info-block{
-        margin-left: 50px;
-        padding: 150px 0;
-        .player-bio{
-          color: white;
-          margin: 5px;
-          font-size: 30px;
-          font-family: 'Lora', serif;
+      .main-block{
+        display: flex;
+        width: 780px;
+        padding: 0 80px;
+        animation: fade 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+        .info-block{
+          margin-left: 50px;
+          padding: 150px 0;
+          .player-bio{
+            color: white;
+            margin: 5px;
+            font-size: 30px;
+            font-family: 'Lora', serif;
+          }
         }
       }
     }
@@ -296,6 +313,7 @@ body{
     .contacts-wrapper{
       padding: 15px 0;
       .contacts-header{
+        margin: 0 150px;
         padding: 20px 0;
         text-align: center;
         border-bottom: 2px solid black;

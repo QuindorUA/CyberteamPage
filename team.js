@@ -1,21 +1,21 @@
 getE("first-player").onclick = function () {
-    playerInfoBlock(1, "images/blackwolf.png");
+    playerInfoBlock(0);
 }
 getE("second-player").onclick = function () {
-    playerInfoBlock(2, "images/muhlik.png");
+    playerInfoBlock(1);
 }
 getE("third-player").onclick = function () {
-    playerInfoBlock(0, "images/romanov.png");
+    playerInfoBlock(2);
 }
 getE("forth-player").onclick = function () {
-    playerInfoBlock(3, "images/rebel.png");
+    playerInfoBlock(3);
 }
 getE("fifth-player").onclick = function () {
-    playerInfoBlock(4, "images/rezan.png");
+    playerInfoBlock(4);
 }
 
 
-let playerInfoBlock = function (id, img) {
+let playerInfoBlock = function (id) {
     let modelContainer = getE("current-roster");
     modelContainer.style.display = "none";
 
@@ -23,18 +23,44 @@ let playerInfoBlock = function (id, img) {
     playerBlock.style.display = "flex";
     playerBlock.innerHTML = "";
 
+    let leftArrow = createEl("div");
+    leftArrow.className = "arrow";
+    leftArrow.id = "previous";
+    let leftArrowText = createTe("<");
+
+    leftArrow.appendChild(leftArrowText);
+    playerBlock.appendChild(leftArrow);
+
+    let mainBlock = createEl("div");
+    mainBlock.className = "main-block";
+
+    playerBlock.appendChild(mainBlock);
+
     let modelBlock = createEl("div");
     modelBlock.className = "model-block";
     modelBlock.onclick = function(){
         playerBlock.style.display = "none";
         getE("current-roster").style.display = "flex";
     }
+
     let modelImage = createEl("img");
-    modelImage.src = img;
+    switch (id) {
+        case 0 : modelImage.src = "images/blackwolf.png";
+            break;
+        case 1 : modelImage.src = "images/muhlik.png";
+            break
+        case 2 : modelImage.src = "images/romanov.png";
+            break
+        case 3 : modelImage.src = "images/rebel.png";
+            break
+        case 4 : modelImage.src = "images/rezan.png";
+            break
+    }
 
 
-    modelBlock.appendChild(modelImage)
-    playerBlock.appendChild(modelBlock);
+    modelBlock.appendChild(modelImage);
+    mainBlock.appendChild(modelBlock);
+    playerBlock.appendChild(mainBlock);
 
     let infoBlock = createEl("div");
     infoBlock.className = "info-block";
@@ -82,5 +108,36 @@ let playerInfoBlock = function (id, img) {
     roleWrap.appendChild(roleText);
     infoBlock.appendChild(roleWrap);
 
-    playerBlock.appendChild(infoBlock);
+    mainBlock.appendChild(infoBlock);
+    playerBlock.appendChild(mainBlock);
+
+    let rightArrow = createEl("div");
+    rightArrow.className = "arrow";
+    rightArrow.id = "next";
+    let rightArrowText = createTe(">");
+
+    rightArrow.appendChild(rightArrowText);
+    playerBlock.appendChild(rightArrow);
+
+
+    getE("previous").onclick = function () {
+        if (id===0){
+            id = 4;
+            playerInfoBlock(id);
+        }else{
+            id --;
+            playerInfoBlock(id);
+        }
+    }
+
+    getE("next").onclick = function () {
+        if (id===4){
+            id = 0;
+            playerInfoBlock(id);
+        }else{
+            id ++;
+            playerInfoBlock(id);
+        }
+    }
+
 }

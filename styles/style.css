@@ -132,7 +132,7 @@ body .main-container .dots-container .dot {
   background-color: #dfd6ce;
 }
 body .main-container .dots-container .active {
-  border: 2px solid blue;
+  border: 2px solid #4551ff;
 }
 body .main-container #current-roster {
   position: relative;
@@ -209,15 +209,32 @@ body .main-container #player-info {
   margin: 80px 50px;
   animation: fade 1.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
+body .main-container #player-info .arrow {
+  color: white;
+  font-family: 'Lora', serif;
+  font-size: 45px;
+  font-weight: bold;
+  margin: auto 0;
+}
+body .main-container #player-info .arrow:hover {
+  color: #4551ff;
+  cursor: pointer;
+}
 body .main-container #player-info .model-block img {
   width: 340px;
   cursor: pointer;
 }
-body .main-container #player-info .info-block {
+body .main-container #player-info .main-block {
+  display: flex;
+  width: 780px;
+  padding: 0 80px;
+  animation: fade 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+body .main-container #player-info .main-block .info-block {
   margin-left: 50px;
   padding: 150px 0;
 }
-body .main-container #player-info .info-block .player-bio {
+body .main-container #player-info .main-block .info-block .player-bio {
   color: white;
   margin: 5px;
   font-size: 30px;
@@ -293,6 +310,7 @@ body .main-container .contacts-wrapper {
   padding: 15px 0;
 }
 body .main-container .contacts-wrapper .contacts-header {
+  margin: 0 150px;
   padding: 20px 0;
   text-align: center;
   border-bottom: 2px solid black;
