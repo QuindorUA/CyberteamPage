@@ -8,7 +8,7 @@ body{
   .header-fixed-scroll{
     position: fixed;
     width: 100vw;
-    padding: 10px;
+    padding: 10px 0;
     color: white;
     background: #080003;
     z-index: 10;
@@ -16,7 +16,7 @@ body{
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: 0 50px 0 30px;
+      margin: 0 30px;
       .logo-wrapper{
         position: relative;
         .logo{
@@ -74,6 +74,60 @@ body{
       }
     }
   }
+  .menu-block{
+    display: flex;
+    flex-direction: column;
+    margin-top: 200px;
+    .team-logo{
+      display: flex;
+      justify-content: center;
+      animation: fade 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+    }
+    .menu-container{
+      margin-top: 50px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      animation: fade 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+      img{
+        width: 75px;
+      }
+      .team-block{
+        text-align: center;
+      }
+      .achievements-block{
+        text-align: center;
+      }
+      .contacts-block{
+        text-align: center;
+      }
+      p{
+        margin: 0;
+        font-size: 20px;
+        font-weight: bold;
+        background: -webkit-linear-gradient(90deg, #d53369 0%, #daae51 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0px 0px 20px #000000;
+      }
+      .menu-item{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 100px;
+        border: 4px solid black;
+        border-radius: 50%;
+        margin: 0 25px 0 25px;
+        cursor: pointer;
+        background-color: #daae51;
+      }
+      .menu-item:hover{
+        background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+        transition: 5s;
+      }
+    }
+  }
   .main-container{
     padding: 100px 0 0 0;
     @keyframes fade{
@@ -87,54 +141,54 @@ body{
     .fade{
       animation: fade 1.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
     }
-    .slide-container{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: auto;
-      padding: 125px 150px 0 150px;
-      .slide{
-        display: none;
-        width: 100%;
-        height: 500px;
-        .photo-container{
-          img{
-            width: 400px;
-          }
-        }
-        .text-container{
-          padding: 60px 15px;
-          text-align: center;
-          p{
-            margin: 0;
-            padding: 70px 0;
-            font-weight: bold;
-            font-family: "Marck Script", cursive;
-            color: white;
-            font-size: 65px;
-            text-shadow: 5px 1px 2px rgba(0, 0, 0, 1);
-          }
-        }
-      }
-    }
-    .dots-container{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
-      .dot{
-        cursor: pointer;
-        margin: 125px 5px 5px 5px;
-        width: 20px;
-        height: 20px;
-        color: #333;
-        border-radius: 50%;
-        background-color: #dfd6ce;
-      }
-      .active{
-        border: 2px solid #4551ff;
-      }
-    }
+    //.slide-container{
+    //  display: flex;
+    //  justify-content: center;
+    //  align-items: center;
+    //  margin: auto;
+    //  padding: 125px 150px 0 150px;
+    //  .slide{
+    //    display: none;
+    //    width: 100%;
+    //    height: 500px;
+    //    .photo-container{
+    //      img{
+    //        width: 400px;
+    //      }
+    //    }
+    //    .text-container{
+    //      padding: 60px 15px;
+    //      text-align: center;
+    //      p{
+    //        margin: 0;
+    //        padding: 70px 0;
+    //        font-weight: bold;
+    //        font-family: "Marck Script", cursive;
+    //        color: white;
+    //        font-size: 65px;
+    //        text-shadow: 5px 1px 2px rgba(0, 0, 0, 1);
+    //      }
+    //    }
+    //  }
+    //}
+    //.dots-container{
+    //  display: flex;
+    //  justify-content: center;
+    //  align-items: center;
+    //  padding: 10px;
+    //  .dot{
+    //    cursor: pointer;
+    //    margin: 125px 5px 5px 5px;
+    //    width: 20px;
+    //    height: 20px;
+    //    color: #333;
+    //    border-radius: 50%;
+    //    background-color: #dfd6ce;
+    //  }
+    //  .active{
+    //    border: 2px solid #4551ff;
+    //  }
+    //}
     #current-roster{
       position: relative;
       display: flex;
@@ -143,7 +197,7 @@ body{
       .player-model{
         cursor: pointer;
         position: absolute;
-        animation: fade 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+        animation: fade 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
         &:hover .player-nickname{
           opacity: 1;
           transition: 2s;
@@ -232,13 +286,49 @@ body{
         padding: 0 80px;
         animation: fade 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
         .info-block{
+          width: 100%;
           margin-left: 50px;
           padding: 150px 0;
-          .player-bio{
-            color: white;
+          .buttonWrap{
+            #buttonLeft, #buttonRight{
+              border: none;
+              margin: 0 2px;
+              height: 4px;
+              width: 48%;
+              &:hover{
+                background-color: #4551ff;
+                cursor: pointer;
+              }
+            }
+          }
+          #playerBioWrap{
+            display: block;
+            .player-bio{
+              color: white;
+              margin: 5px;
+              font-size: 30px;
+              font-family: 'Lora', serif;
+            }
+          }
+          #linkWrap{
+            display: none;
+            width: 100%;
             margin: 5px;
-            font-size: 30px;
-            font-family: 'Lora', serif;
+            .linkInfo{
+              display: flex;
+              flex-direction: row;
+              margin-right: 5px;
+              text-decoration: none;
+              img{
+                width: 46px;
+              }
+              p{
+                color: white;
+                margin: 5px;
+                font-size: 30px;
+                font-family: 'Lora', serif;
+              }
+            }
           }
         }
       }
@@ -267,7 +357,7 @@ body{
           background-color: black;
           padding: 5px;
           margin: 10px;
-          animation: fade 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+          animation: fade 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
           .main-section{
             position: relative;
             a{
@@ -297,7 +387,7 @@ body{
             padding: 15px 10px;
             width: 400px;
             background-color: white;
-            animation: fade 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+            animation: fade 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
             .tournament-info-text{
               margin: 5px;
               font-family: 'Lora', serif;

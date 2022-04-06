@@ -1,31 +1,27 @@
 let playersBIO = [
     {
         fullName: "Денис Папуша",
-        nickname: "d3nn1",
-        image: "images/d3nn1.jpg",
-        age: 14,
+        nickname: "AnyIay",
+        age: new Date("02.20.2006"),
         country: "Україна",
         town: "Тернопіль",
         gameRole: "Rifler",
         steam: "https://steamcommunity.com/profiles/76561198352076109",
-        faceit: "https://www.faceit.com/en/players/-d3nn1"
+        faceit: "https://www.faceit.com/en/players/AnyIay"
     },
     {
-        fullName: "Олександр Абрамов",
-        nickname: "L0nEr",
-        image: "images/l0ner.jpg",
-        age: 15,
+        fullName: "Олег Бецко",
+        nickname: "19btw",
         country: "Україна",
-        town: "Івано-Франківськ",
-        gameRole: "2nd Sniper",
+        town: "Стрий",
+        gameRole: "Rifler",
         steam: "https://steamcommunity.com/profiles/76561198395100620",
-        faceit: "https://www.faceit.com/en/players/-d3nn1"
+        faceit: "https://www.faceit.com/en/players/19btw"
     },
     {
         fullName: "Роман Гульоватий",
         nickname: "Quindor",
-        image: "images/quindor.jpg",
-        age: 21,
+        age: new Date("08.05.1999"),
         country: "Україна",
         town: "Тернопіль",
         gameRole: "Captain",
@@ -35,24 +31,21 @@ let playersBIO = [
     {
         fullName: "Денис Коваленко",
         nickname: "DenCool",
-        image: "images/dencool.jpg",
-        age: 17,
         country: "Україна",
         town: "Тернопіль",
         gameRole: "Sniper",
         steam: "https://steamcommunity.com/profiles/76561198210846523",
-        faceit: "https://www.faceit.com/en/players/DenCooL05"
+        faceit: "https://www.faceit.com/en/players/DenC00L"
     },
     {
         fullName: "Олег Парух",
         nickname: "Bankai",
-        image: "images/bankai.jpg",
-        age: 17,
+        age: new Date("05.20.2000"),
         country: "Україна",
         town: "Стрий",
         gameRole: "Rifler",
         steam: "https://steamcommunity.com/profiles/76561198412603211",
-        faceit: "https://www.faceit.com/en/players/OlegParuh"
+        faceit: "https://www.faceit.com/en/players/Ban_k_ai"
     },
     ]
 let achievements = [

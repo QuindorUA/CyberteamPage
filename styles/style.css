@@ -12,7 +12,7 @@ body {
 body .header-fixed-scroll {
   position: fixed;
   width: 100vw;
-  padding: 10px;
+  padding: 10px 0;
   color: white;
   background: #080003;
   z-index: 10;
@@ -21,7 +21,7 @@ body .header-fixed-scroll .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 50px 0 30px;
+  margin: 0 30px;
 }
 body .header-fixed-scroll .header-container .logo-wrapper {
   position: relative;
@@ -74,6 +74,60 @@ body .header-fixed-scroll .header-container .header-contacts .contacts-icon .fa 
 body .header-fixed-scroll .header-container .header-contacts .contacts-icon .fa:hover {
   border-bottom: 1px solid white;
 }
+body .menu-block {
+  display: flex;
+  flex-direction: column;
+  margin-top: 200px;
+}
+body .menu-block .team-logo {
+  display: flex;
+  justify-content: center;
+  animation: fade 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+body .menu-block .menu-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  animation: fade 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+body .menu-block .menu-container img {
+  width: 75px;
+}
+body .menu-block .menu-container .team-block {
+  text-align: center;
+}
+body .menu-block .menu-container .achievements-block {
+  text-align: center;
+}
+body .menu-block .menu-container .contacts-block {
+  text-align: center;
+}
+body .menu-block .menu-container p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  background: -webkit-linear-gradient(90deg, #d53369 0%, #daae51 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 0px 20px #000000;
+}
+body .menu-block .menu-container .menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border: 4px solid black;
+  border-radius: 50%;
+  margin: 0 25px 0 25px;
+  cursor: pointer;
+  background-color: #daae51;
+}
+body .menu-block .menu-container .menu-item:hover {
+  background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+  transition: 5s;
+}
 body .main-container {
   padding: 100px 0 0 0;
 }
@@ -88,52 +142,6 @@ body .main-container {
 body .main-container .fade {
   animation: fade 1.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
-body .main-container .slide-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  padding: 125px 150px 0 150px;
-}
-body .main-container .slide-container .slide {
-  display: none;
-  width: 100%;
-  height: 500px;
-}
-body .main-container .slide-container .slide .photo-container img {
-  width: 400px;
-}
-body .main-container .slide-container .slide .text-container {
-  padding: 60px 15px;
-  text-align: center;
-}
-body .main-container .slide-container .slide .text-container p {
-  margin: 0;
-  padding: 70px 0;
-  font-weight: bold;
-  font-family: "Marck Script", cursive;
-  color: white;
-  font-size: 65px;
-  text-shadow: 5px 1px 2px #000000;
-}
-body .main-container .dots-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
-body .main-container .dots-container .dot {
-  cursor: pointer;
-  margin: 125px 5px 5px 5px;
-  width: 20px;
-  height: 20px;
-  color: #333;
-  border-radius: 50%;
-  background-color: #dfd6ce;
-}
-body .main-container .dots-container .active {
-  border: 2px solid #4551ff;
-}
 body .main-container #current-roster {
   position: relative;
   display: flex;
@@ -143,7 +151,7 @@ body .main-container #current-roster {
 body .main-container #current-roster .player-model {
   cursor: pointer;
   position: absolute;
-  animation: fade 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: fade 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 body .main-container #current-roster .player-model:hover .player-nickname {
   opacity: 1;
@@ -231,10 +239,46 @@ body .main-container #player-info .main-block {
   animation: fade 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 body .main-container #player-info .main-block .info-block {
+  width: 100%;
   margin-left: 50px;
   padding: 150px 0;
 }
-body .main-container #player-info .main-block .info-block .player-bio {
+body .main-container #player-info .main-block .info-block .buttonWrap #buttonLeft,
+body .main-container #player-info .main-block .info-block .buttonWrap #buttonRight {
+  border: none;
+  margin: 0 2px;
+  height: 4px;
+  width: 48%;
+}
+body .main-container #player-info .main-block .info-block .buttonWrap #buttonLeft:hover,
+body .main-container #player-info .main-block .info-block .buttonWrap #buttonRight:hover {
+  background-color: #4551ff;
+  cursor: pointer;
+}
+body .main-container #player-info .main-block .info-block #playerBioWrap {
+  display: block;
+}
+body .main-container #player-info .main-block .info-block #playerBioWrap .player-bio {
+  color: white;
+  margin: 5px;
+  font-size: 30px;
+  font-family: 'Lora', serif;
+}
+body .main-container #player-info .main-block .info-block #linkWrap {
+  display: none;
+  width: 100%;
+  margin: 5px;
+}
+body .main-container #player-info .main-block .info-block #linkWrap .linkInfo {
+  display: flex;
+  flex-direction: row;
+  margin-right: 5px;
+  text-decoration: none;
+}
+body .main-container #player-info .main-block .info-block #linkWrap .linkInfo img {
+  width: 46px;
+}
+body .main-container #player-info .main-block .info-block #linkWrap .linkInfo p {
   color: white;
   margin: 5px;
   font-size: 30px;
@@ -266,7 +310,7 @@ body .main-container .achievements #tournament-wrapper .tournament-card {
   background-color: black;
   padding: 5px;
   margin: 10px;
-  animation: fade 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: fade 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 body .main-container .achievements #tournament-wrapper .tournament-card .main-section {
   position: relative;
@@ -296,7 +340,7 @@ body .main-container .achievements #tournament-wrapper .tournament-card .tournam
   padding: 15px 10px;
   width: 400px;
   background-color: white;
-  animation: fade 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: fade 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 body .main-container .achievements #tournament-wrapper .tournament-card .tournament-info .tournament-info-text {
   margin: 5px;
