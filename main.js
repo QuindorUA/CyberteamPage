@@ -12,6 +12,7 @@ let playersBIO = [
     {
         fullName: "Олег Бецко",
         nickname: "19btw",
+        age: new Date("02.20.2006"),
         country: "Україна",
         town: "Стрий",
         gameRole: "Rifler",
